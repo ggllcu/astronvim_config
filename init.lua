@@ -91,6 +91,7 @@ local config = {
       --     require("lsp_signature").setup()
       --   end,
       -- },
+      'chamindra/marvim',
       'rmehri01/onenord.nvim'
     },
     -- All other entries override the setup() call for default plugins
