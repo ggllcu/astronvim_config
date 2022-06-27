@@ -27,6 +27,7 @@ local config = {
       wrap = true,
       linebreak = true,
       mouse = "", -- Enable mouse support
+      signcolumn = "yes"
     },
     g = {
       mapleader = " ", -- sets vim.g.mapleader
