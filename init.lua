@@ -92,7 +92,8 @@ local config = {
       --   end,
       -- },
       'chamindra/marvim',
-      'rmehri01/onenord.nvim'
+      'rmehri01/onenord.nvim',
+      'jwalton512/vim-blade'
     },
     -- All other entries override the setup() call for default plugins
     ["null-ls"] = function(config)
