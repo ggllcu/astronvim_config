@@ -93,7 +93,8 @@ local config = {
       -- },
       'chamindra/marvim',
       'rmehri01/onenord.nvim',
-      'jwalton512/vim-blade'
+      'jwalton512/vim-blade',
+      'nvim-telescope/telescope-file-browser.nvim'
     },
     -- All other entries override the setup() call for default plugins
     ["null-ls"] = function(config)
@@ -125,17 +126,17 @@ local config = {
     },
     ["neo-tree"] = {
       event_handlers = {
-          {
-            event = "file_opened",
-            handler = function(file_path)
-              --auto close
-              require("neo-tree").close_all()
-            end
-          },
+        {
+          event = "file_opened",
+          handler = function(file_path)
+            --auto close
+            require("neo-tree").close_all()
+          end
         },
-         window = {
-          width = 60,
-        }
+      },
+      window = {
+        width = 60,
+      }
     },
     ["nvim-lsp-installer"] = {
       ensure_installed = { "sumneko_lua" },
@@ -229,6 +230,13 @@ local config = {
     -- Set key bindings
     vim.keymap.set("n", "<C-s>", ":w!<CR>")
     vim.keymap.set("n", "<esc>", ":noh <CR>")
+
+    vim.api.nvim_set_keymap(
+      "n",
+      "<space>fd",
+      ":Telescope file_browser",
+      { noremap = true }
+    )
 
     -- Set autocommands
     vim.api.nvim_create_augroup("packer_conf", { clear = true })
