@@ -136,6 +136,12 @@ local config = {
       },
       window = {
         width = 60,
+      },
+      filesystem = {
+        filtered_items = {
+          hide_dotfiles = false,
+          hide_gitignored = false,
+        },
       }
     },
     ["nvim-lsp-installer"] = {
