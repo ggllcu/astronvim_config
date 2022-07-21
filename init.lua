@@ -18,7 +18,7 @@ local config = {
   },
 
   -- Set colorscheme
-  colorscheme = "onenord",
+  colorscheme = "nightfox",
 
   -- set vim options here (vim.<first_key>.<second_key> =  value)
   options = {
@@ -92,7 +92,7 @@ local config = {
       --   end,
       -- },
       'chamindra/marvim',
-      'rmehri01/onenord.nvim',
+      'EdenEast/nightfox.nvim',
       'jwalton512/vim-blade',
       'nvim-telescope/telescope-file-browser.nvim'
     },
@@ -239,7 +239,7 @@ local config = {
 
     vim.api.nvim_set_keymap(
       "n",
-      "<space>fd",
+      "<space>fp",
       ":Telescope file_browser",
       { noremap = true }
     )
