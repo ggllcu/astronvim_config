@@ -27,7 +27,11 @@ local config = {
       wrap = true,
       linebreak = true,
       mouse = "", -- Enable mouse support
-      signcolumn = "yes"
+      signcolumn = "yes",
+      autoindent = true,
+      expandtab = true,
+      shiftwidth= 4,
+      tabstop = 4,
     },
     g = {
       mapleader = " ", -- sets vim.g.mapleader
@@ -94,7 +98,9 @@ local config = {
       'chamindra/marvim',
       'EdenEast/nightfox.nvim',
       'jwalton512/vim-blade',
-      'nvim-telescope/telescope-file-browser.nvim'
+      'nvim-telescope/telescope-file-browser.nvim',
+      'ray-x/lsp_signature.nvim',
+      'ThePrimeagen/refactoring.nvim'
     },
     -- All other entries override the setup() call for default plugins
     ["null-ls"] = function(config)
@@ -135,6 +141,7 @@ local config = {
         },
       },
       window = {
+        position = "float",
         width = 60,
       },
       filesystem = {
@@ -209,6 +216,13 @@ local config = {
 
     -- Add overrides for LSP server settings, the keys are the name of the server
     ["server-settings"] = {
+      -- intelephense = {
+      --   capabilities = capabilities,
+      --   on_attach = on_attach,
+      --   init_options = {
+      --     licenceKey = "00825M3XXSIKI0B",
+      --   },
+      -- }
       -- example for addings schemas to yamlls
       -- yamlls = {
       --   settings = {
