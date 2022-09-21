@@ -32,6 +32,7 @@ local config = {
       expandtab = true,
       shiftwidth= 4,
       tabstop = 4,
+      clipboard = ""
     },
     g = {
       mapleader = " ", -- sets vim.g.mapleader
@@ -69,7 +70,7 @@ local config = {
       symbols_outline = false,
       telescope = true,
       vimwiki = false,
-      ["which-key"] = true,
+      ["which-key"] = false,
     },
   },
 
@@ -100,7 +101,8 @@ local config = {
       'jwalton512/vim-blade',
       'nvim-telescope/telescope-file-browser.nvim',
       'ray-x/lsp_signature.nvim',
-      'ThePrimeagen/refactoring.nvim'
+      'ThePrimeagen/refactoring.nvim',
+      'windwp/nvim-spectre'
     },
     -- All other entries override the setup() call for default plugins
     ["null-ls"] = function(config)
@@ -170,19 +172,19 @@ local config = {
   },
 
   -- Modify which-key registration
-  ["which-key"] = {
+  -- ["which-key"] = {
     -- Add bindings
-    register_mappings = {
+    -- register_mappings = {
       -- first key is the mode, n == normal mode
-      n = {
+      -- n = {
         -- second key is the prefix, <leader> prefixes
-        ["<leader>"] = {
+        -- ["<leader>"] = {
           -- which-key registration table for normal mode, leader prefix
           -- ["N"] = { "<cmd>tabnew<cr>", "New Buffer" },
-        },
-      },
-    },
-  },
+        -- },
+      -- },
+    -- },
+  -- },
 
   -- CMP Source Priorities
   -- modify here the priorities of default cmp sources
@@ -251,13 +253,6 @@ local config = {
     vim.keymap.set("n", "<C-s>", ":w!<CR>")
     vim.keymap.set("n", "<esc>", ":noh <CR>")
 
-    vim.api.nvim_set_keymap(
-      "n",
-      "<space>fp",
-      ":Telescope file_browser",
-      { noremap = true }
-    )
-
     -- Set autocommands
     vim.api.nvim_create_augroup("packer_conf", { clear = true })
     vim.api.nvim_create_autocmd("BufWritePost", {
@@ -266,6 +261,9 @@ local config = {
       pattern = "plugins.lua",
       command = "source <afile> | PackerSync",
     })
+
+    -- Nvim Spectre
+    vim.keymap.set("n", "<leader>S", "<cmd>lua require('spectre').open()<cr>")
 
     -- Set up custom filetypes
     -- vim.filetype.add {
